@@ -353,12 +353,37 @@ section {
     border: 2px solid rgba(255, 255, 255, 0.1);
     color: #667eea;
     font-size: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
 }
 
 .image-placeholder p {
     margin-top: 1rem;
     font-size: 1rem;
     color: #a0a0a0;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/* Hide the fallback text when image is present */
+.image-placeholder:has(img) p {
+    display: none;
+}
+
+/* Fallback for browsers that don't support :has() */
+.image-placeholder img ~ p {
+    display: none;
 }
 
 /* Skills Section */
